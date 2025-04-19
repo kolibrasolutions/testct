@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Centro de Treinamento</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Conheça nossa linha de produtos selecionados para potencializar seus resultados: suplementos, vestuário e produtos de café.">
+    <meta name="keywords" content="suplementos, whey protein, roupas esportivas, café, produtos fitness">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/produtos.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menu de navegação será inserido via JavaScript -->
+    <nav class="navbar"></nav>
+    
+    <!-- Banner da página de produtos -->
+    <section class="banner-produtos">
+        <div class="container">
+            <h1>Nossos Produtos</h1>
+            <p>Conheça nossa linha de produtos selecionados para potencializar seus resultados</p>
+        </div>
+    </section>
+    
+    <!-- Categorias de produtos -->
+    <section class="categorias-produtos">
+        <div class="container">
+            <h2>Categorias</h2>
+            <div class="grid-categorias">
+                <a href="/produtos/suplementos.html" class="categoria-card">
+                    <div class="categoria-img">
+                        <img src="/img/produtos/categoria-suplementos.jpg" alt="Suplementos">
+                    </div>
+                    <h3>Suplementos</h3>
+                    <p>Proteínas, aminoácidos e mais para seu desempenho</p>
+                </a>
+                
+                <a href="/produtos/vestuario.html" class="categoria-card">
+                    <div class="categoria-img">
+                        <img src="/img/produtos/categoria-vestuario.jpg" alt="Vestuário">
+                    </div>
+                    <h3>Vestuário</h3>
+                    <p>Roupas técnicas para treinos confortáveis</p>
+                </a>
+                
+                <a href="/produtos/cafe.html" class="categoria-card">
+                    <div class="categoria-img">
+                        <img src="/img/produtos/categoria-cafe.jpg" alt="Café">
+                    </div>
+                    <h3>Produtos de Café</h3>
+                    <p>Energia natural para antes e depois do treino</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Produtos em destaque -->
+    <section class="produtos-destaque">
+        <div class="container">
+            <h2>Produtos em Destaque</h2>
+            <div class="grid-produtos" id="produtos-destaque">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/img/logo.png" alt="Centro de Treinamento">
+                    <p>Transformando vidas através do treinamento de qualidade e produtos selecionados.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/sobre.html">Sobre</a></li>
+                        <li><a href="/modalidades.html">Modalidades</a></li>
+                        <li><a href="/equipe.html">Equipe</a></li>
+                        <li><a href="/produtos/index.html">Produtos</a></li>
+                        <li><a href="/contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-produtos">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="/produtos/suplementos.html">Suplementos</a></li>
+                        <li><a href="/produtos/vestuario.html">Vestuário</a></li>
+                        <li><a href="/produtos/cafe.html">Produtos de Café</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Receba Novidades</h4>
+                    <p>Cadastre-se para receber ofertas exclusivas e dicas de treino.</p>
+                    <form id="form-newsletter">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Centro de Treinamento. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="/politica-privacidade.html">Política de Privacidade</a>
+                    <a href="/termos-uso.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="/js/menu-padronizado.js"></script>
+    <script src="/js/vitrine-produtos.js"></script>
+</body>
+</html>

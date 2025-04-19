@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Imagens Placeholder - Centro de Treinamento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #004494;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #004494;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .btn:hover {
+            background-color: #003a7e;
+        }
+        .progress {
+            margin-top: 20px;
+            display: none;
+        }
+        .progress-bar {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #004494;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .status {
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .image-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .image-item img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Imagens Placeholder</h1>
+        <p>Esta ferramenta gera imagens placeholder para o site do Centro de Treinamento. Clique no botão abaixo para gerar todas as imagens necessárias.</p>
+        
+        <button id="generate-btn" class="btn">Gerar Imagens Placeholder</button>
+        
+        <div id="progress" class="progress">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <div id="status" class="status">Preparando...</div>
+        </div>
+        
+        <div id="image-container" class="image-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generate-btn');
+            const progress = document.getElementById('progress');
+            const progressFill = document.getElementById('progress-fill');
+            const status = document.getElementById('status');
+            const imageContainer = document.getElementById('image-container');
+            
+            // Lista de produtos que precisam de imagens
+            const produtos = [
+                { id: 'whey-protein', nome: 'Whey Protein Isolado', categoria: 'suplementos' },
+                { id: 'creatina', nome: 'Creatina Monohidratada', categoria: 'suplementos' },
+                { id: 'bcaa', nome: 'BCAA 2:1:1', categoria: 'suplementos' },
+                { id: 'pre-treino', nome: 'Pré-Treino Energy', categoria: 'suplementos' },
+                { id: 'camiseta', nome: 'Camiseta Dry-Fit', categoria: 'vestuario' },
+                { id: 'regata', nome: 'Regata Performance', categoria: 'vestuario' },
+                { id: 'shorts', nome: 'Shorts Esportivo', categoria: 'vestuario' },
+                { id: 'legging', nome: 'Legging Compressão', categoria: 'vestuario' },
+                { id: 'cafe-pre-treino', nome: 'Café Especial Pré-Treino', categoria: 'cafe' },
+                { id: 'cafe-recuperacao', nome: 'Café Especial Recuperação', categoria: 'cafe' },
+                { id: 'kit-cafe', nome: 'Kit Café Atleta', categoria: 'cafe' },
+                { id: 'caneca', nome: 'Caneca Térmica', categoria: 'cafe' }
+            ];
+            
+            // Categorias
+            const categorias = [
+                { id: 'categoria-suplementos', nome: 'Suplementos' },
+                { id: 'categoria-vestuario', nome: 'Vestuário' },
+                { id: 'categoria-cafe', nome: 'Produtos de Café' }
+            ];
+            
+            // Banners
+            const banners = [
+                { id: 'banner-principal', nome: 'Banner Principal' },
+                { id: 'banner-pagina', nome: 'Banner de Página' },
+                { id: 'banner-categoria', nome: 'Banner de Categoria' },
+                { id: 'banner-produtos', nome: 'Banner de Produtos' },
+                { id: 'cta-bg', nome: 'Background CTA' }
+            ];
+            
+            // Outros
+            const outros = [
+                { id: 'depoimento1', nome: 'Depoimento 1' },
+                { id: 'depoimento2', nome: 'Depoimento 2' },
+                { id: 'depoimento3', nome: 'Depoimento 3' },
+                { id: 'logo', nome: 'Logo' },
+                { id: 'favicon', nome: 'Favicon' },
+                { id: 'sobre-academia', nome: 'Sobre Academia' },
+                { id: 'sobre-historia', nome: 'História' },
+                { id: 'estrutura-1', nome: 'Estrutura 1' },
+                { id: 'estrutura-2', nome: 'Estrutura 2' },
+                { id: 'estrutura-3', nome: 'Estrutura 3' },
+                { id: 'estrutura-4', nome: 'Estrutura 4' },
+                { id: 'estrutura-5', nome: 'Estrutura 5' },
+                { id: 'estrutura-6', nome: 'Estrutura 6' },
+                { id: 'modalidade-musculacao', nome: 'Musculação' },
+                { id: 'modalidade-funcional', nome: 'Funcional' },
+                { id: 'modalidade-cardio', nome: 'Cardio' },
+                { id: 'modalidade-spinning', nome: 'Spinning' },
+                { id: 'modalidade-artes-marciais', nome: 'Artes Marciais' },
+                { id: 'modalidade-yoga', nome: 'Yoga' }
+            ];
+            
+            // Todas as imagens
+            const todasImagens = [];
+            
+            // Adicionar produtos e suas variações
+            produtos.forEach(produto => {
+                todasImagens.push({
+                    id: produto.id,
+                    nome: produto.nome,
+                    corFundo: getCategoryColor(produto.categoria),
+                    largura: 400,
+                    altura: 300
+                });
+                
+                // Adicionar variações
+                for (let i = 2; i <= 3; i++) {
+                    todasImagens.push({
+                        id: `${produto.id}-${i}`,
+                        nome: `${produto.nome} ${i}`,
+                        corFundo: getCategoryColor(produto.categoria),
+                        largura: 400,
+                        altura: 300
+                    });
+                }
+            });
+            
+            // Adicionar categorias
+            categorias.forEach(categoria => {
+                todasImagens.push({
+                    id: categoria.id,
+                    nome: categoria.nome,
+                    corFundo: '#3498db',
+                    largura: 400,
+                    altura: 300
+                });
+            });
+            
+            // Adicionar banners
+            banners.forEach(banner => {
+                todasImagens.push({
+                    id: banner.id,
+                    nome: banner.nome,
+                    corFundo: '#2c3e50',
+                    largura: 1200,
+                    altura: 400
+                });
+            });
+            
+            // Adicionar outros
+            outros.forEach(outro => {
+                if (outro.id === 'logo') {
+                    todasImagens.push({
+                        id: outro.id,
+                        nome: outro.nome,
+                        corFundo: '#004494',
+                        largura: 200,
+                        altura: 50
+                    });
+                } else if (outro.id === 'favicon') {
+                    todasImagens.push({
+                        id: outro.id,
+                        nome: outro.nome,
+                        corFundo: '#004494',
+                        largura: 32,
+                        altura: 32
+                    });
+                } else if (outro.id.startsWith('depoimento')) {
+                    todasImagens.push({
+                        id: outro.id,
+                        nome: outro.nome,
+                        corFundo: '#95a5a6',
+                        largura: 100,
+                        altura: 100
+                    });
+                } else {
+                    todasImagens.push({
+                        id: outro.id,
+                        nome: outro.nome,
+                        corFundo: '#7f8c8d',
+                        largura: 600,
+                        altura: 400
+                    });
+                }
+            });
+            
+            // Função para obter cor por categoria
+            function getCategoryColor(categoria) {
+                switch(categoria) {
+                    case 'suplementos':
+                        return '#e74c3c';
+                    case 'vestuario':
+                        return '#2ecc71';
+                    case 'cafe':
+                        return '#8e44ad';
+                    default:
+                        return '#f39c12';
+                }
+            }
+            
+            // Função para criar uma imagem de placeholder
+            function criarImagemPlaceholder(imagem) {
+                return new Promise((resolve) => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = imagem.largura;
+                    canvas.height = imagem.altura;
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Desenhar fundo
+                    ctx.fillStyle = imagem.corFundo;
+                    ctx.fillRect(0, 0, imagem.largura, imagem.altura);
+                    
+                    // Desenhar texto
+                    ctx.fillStyle = '#ffffff';
+                    ctx.font = `bold ${Math.floor(imagem.altura/10)}px Arial`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    // Quebrar texto em linhas se necessário
+                    const palavras = imagem.nome.split(' ');
+                    let linhas = [];
+                    let linhaAtual = '';
+                    
+                    for (let palavra of palavras) {
+                        const testeLinha = linhaAtual + palavra + ' ';
+                        if (ctx.measureText(testeLinha).width > imagem.largura * 0.8) {
+                            linhas.push(linhaAtual);
+                            linhaAtual = palavra + ' ';
+                        } else {
+                            linhaAtual = testeLinha;
+                        }
+                    }
+                    linhas.push(linhaAtual);
+                    
+                    // Desenhar cada linha
+                    const alturaLinha = Math.floor(imagem.altura/10) * 1.2;
+                    const yInicial = imagem.altura/2 - (linhas.length - 1) * alturaLinha / 2;
+                    
+                    linhas.forEach((linha, index) => {
+                        ctx.fillText(linha, imagem.largura/2, yInicial + index * alturaLinha);
+                    });
+                    
+                    // Converter para imagem
+                    const dataURL = canvas.toDataURL('image/png');
+                    
+                    // Criar elemento de imagem para exibição
+                    const imgElement = document.createElement('img');
+                    imgElement.src = dataURL;
+                    imgElement.alt = imagem.nome;
+                    
+                    // Criar container para a imagem
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'image-item';
+                    imgContainer.appendChild(imgElement);
+                    
+                    // Adicionar nome da imagem
+                    const imgName = document.createElement('p');
+                    imgName.textContent = imagem.nome;
+                    imgContainer.appendChild(imgName);
+                    
+                    // Adicionar à página
+                    imageContainer.appendChild(imgContainer);
+                    
+                    // Criar link para download
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = `${imagem.id}.png`;
+                    link.click();
+                    
+                    // Resolver a promessa após um pequeno delay para não sobrecarregar o navegador
+                    setTimeout(resolve, 100);
+                });
+            }
+            
+            // Função para gerar todas as imagens
+            async function gerarTodasImagens() {
+                progress.style.display = 'block';
+                imageContainer.innerHTML = '';
+                
+                const totalImagens = todasImagens.length;
+                let imagensProcessadas = 0;
+                
+                for (const imagem of todasImagens) {
+                    status.textContent = `Gerando imagem: ${imagem.nome}`;
+                    await criarImagemPlaceholder(imagem);
+                    
+                    imagensProcessadas++;
+                    const porcentagem = (imagensProcessadas / totalImagens) * 100;
+                    progressFill.style.width = `${porcentagem}%`;
+                }
+                
+                status.textContent = 'Todas as imagens foram geradas!';
+                generateBtn.textContent = 'Gerar Novamente';
+            }
+            
+            // Evento de clique no botão
+            generateBtn.addEventListener('click', gerarTodasImagens);
+        });
+    </script>
+</body>
+</html>

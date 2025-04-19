@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruções de Implantação - Centro de Treinamento</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #004494;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #004494;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        ol, ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #004494;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Instruções de Implantação - Centro de Treinamento</h1>
+        
+        <h2>Visão Geral</h2>
+        <p>Este documento fornece instruções para implantar o site do Centro de Treinamento na Vercel. O site foi desenvolvido como uma vitrine de produtos com potencial para expansão futura para um e-commerce completo.</p>
+        
+        <h2>Conteúdo do Pacote</h2>
+        <p>O pacote contém os seguintes componentes:</p>
+        <ul>
+            <li><strong>Arquivos HTML</strong> - Páginas principais e templates</li>
+            <li><strong>Arquivos CSS</strong> - Estilos e responsividade</li>
+            <li><strong>Arquivos JavaScript</strong> - Funcionalidades interativas e dados de produtos</li>
+            <li><strong>Pasta de imagens</strong> - Imagens placeholder para produtos e elementos visuais</li>
+        </ul>
+        
+        <h2>Requisitos</h2>
+        <ul>
+            <li>Conta na <a href="https://vercel.com" target="_blank">Vercel</a></li>
+            <li>Git instalado (opcional, para método de implantação via Git)</li>
+        </ul>
+        
+        <h2>Métodos de Implantação</h2>
+        
+        <h3>Método 1: Implantação Direta via Vercel</h3>
+        <ol>
+            <li>Faça login na sua conta da <a href="https://vercel.com" target="_blank">Vercel</a></li>
+            <li>Clique em "Add New..." e selecione "Project"</li>
+            <li>Selecione "Upload" na seção "Import Git Repository"</li>
+            <li>Arraste e solte a pasta do projeto ou clique para selecionar o arquivo ZIP</li>
+            <li>Configure o nome do projeto e outras opções conforme necessário</li>
+            <li>Clique em "Deploy" para iniciar a implantação</li>
+        </ol>
+        
+        <h3>Método 2: Implantação via Git (Recomendado)</h3>
+        <ol>
+            <li>Crie um novo repositório no GitHub, GitLab ou Bitbucket</li>
+            <li>Inicialize o Git no diretório do projeto:
+                <pre>git init
+git add .
+git commit -m "Versão inicial do site do Centro de Treinamento"</pre>
+            </li>
+            <li>Adicione o repositório remoto:
+                <pre>git remote add origin [URL_DO_SEU_REPOSITÓRIO]
+git push -u origin main</pre>
+            </li>
+            <li>Faça login na sua conta da <a href="https://vercel.com" target="_blank">Vercel</a></li>
+            <li>Clique em "Add New..." e selecione "Project"</li>
+            <li>Importe o repositório que você acabou de criar</li>
+            <li>Configure o nome do projeto e outras opções conforme necessário</li>
+            <li>Clique em "Deploy" para iniciar a implantação</li>
+        </ol>
+        
+        <div class="note">
+            <p><strong>Nota:</strong> A implantação via Git é recomendada pois facilita atualizações futuras. Cada vez que você enviar alterações para o repositório, a Vercel automaticamente implantará a nova versão.</p>
+        </div>
+        
+        <h2>Configuração de Domínio Personalizado (Opcional)</h2>
+        <ol>
+            <li>Na Vercel, acesse o projeto implantado</li>
+            <li>Vá para a aba "Settings" e depois "Domains"</li>
+            <li>Adicione seu domínio personalizado e siga as instruções para configurar os registros DNS</li>
+        </ol>
+        
+        <h2>Gerando Imagens Placeholder</h2>
+        <p>O site inclui um gerador de imagens placeholder para facilitar o desenvolvimento:</p>
+        <ol>
+            <li>Após a implantação, acesse <code>[SEU_DOMÍNIO]/gerar-imagens.html</code></li>
+            <li>Clique no botão "Gerar Imagens Placeholder"</li>
+            <li>As imagens serão geradas e baixadas automaticamente</li>
+            <li>Substitua essas imagens por imagens reais quando disponíveis</li>
+        </ol>
+        
+        <div class="warning">
+            <p><strong>Importante:</strong> Para um site em produção, substitua as imagens placeholder por imagens reais de alta qualidade. As imagens placeholder são apenas para fins de desenvolvimento.</p>
+        </div>
+        
+        <h2>Expandindo para E-commerce</h2>
+        <p>O site foi projetado para ser facilmente expandido para um e-commerce completo no futuro. Para isso, você precisará:</p>
+        <ol>
+            <li>Implementar a integração com o PagBank conforme o tutorial fornecido</li>
+            <li>Adicionar funcionalidades de carrinho de compras</li>
+            <li>Implementar sistema de gerenciamento de pedidos</li>
+            <li>Configurar métodos de envio</li>
+        </ol>
+        
+        <h2>Suporte</h2>
+        <p>Para qualquer dúvida ou suporte adicional, entre em contato com a equipe de desenvolvimento.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+/* Estilos responsivos adicionais */
+
+/* Tablets e dispositivos médios */
+@media (max-width: 992px) {
+    /* Geral */
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Banner */
+    .banner-principal {
+        padding: 100px 0;
+    }
+    
+    .banner-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Sobre */
+    .sobre-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .sobre-img {
+        margin-bottom: 30px;
+    }
+    
+    /* Modalidades */
+    .modalidades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Produtos */
+    .grid-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Contato */
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* Depoimentos */
+    .depoimentos-slider {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Modalidades detalhes */
+    .modalidade-item {
+        flex-direction: column;
+    }
+    
+    .modalidade-img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Tabela de horários */
+    .tabela-horarios-container {
+        overflow-x: auto;
+    }
+    
+    /* Planos */
+    .planos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* Dispositivos móveis */
+@media (max-width: 768px) {
+    /* Navegação */
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--light-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        margin: 15px 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    /* Banner */
+    .banner-principal {
+        padding: 80px 0;
+    }
+    
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+    
+    .banner-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .banner-pagina,
+    .banner-categoria,
+    .banner-produtos {
+        padding: 60px 0;
+    }
+    
+    .banner-pagina h1,
+    .banner-categoria h1,
+    .banner-produtos h1 {
+        font-size: 2rem;
+    }
+    
+    /* Modalidades */
+    .modalidades-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Produtos */
+    .grid-produtos {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-categorias {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Produto detalhes */
+    .produto-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .produto-imagens {
+        position: static;
+        margin-bottom: 30px;
+    }
+    
+    .produto-acoes {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .quantidade {
+        width: 100%;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+    
+    .footer-links h4::after,
+    .footer-produtos h4::after,
+    .footer-newsletter h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+    }
+    
+    /* Planos */
+    .planos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Contato página */
+    .contato-page .contato-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* FAQ */
+    .faq-pergunta h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 480px) {
+    /* Geral */
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Banner */
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-content p {
+        font-size: 1rem;
+    }
+    
+    /* Sobre */
+    .sobre-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    /* CTA */
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    /* Formulários */
+    .form-grupo label {
+        font-size: 0.9rem;
+    }
+    
+    .form-grupo input,
+    .form-grupo select,
+    .form-grupo textarea {
+        padding: 10px;
+    }
+    
+    /* Modal */
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+}

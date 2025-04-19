@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestuário - Centro de Treinamento</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Conheça nossa linha de vestuário esportivo para treinos confortáveis e com estilo.">
+    <meta name="keywords" content="vestuário, roupas esportivas, camisetas, regatas, shorts, leggings, fitness">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/produtos.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Menu de navegação será inserido via JavaScript -->
+    <nav class="navbar"></nav>
+    
+    <!-- Banner da página de categoria -->
+    <section class="banner-categoria">
+        <div class="container">
+            <h1>Vestuário</h1>
+            <p>Roupas técnicas para treinos confortáveis e com estilo</p>
+        </div>
+    </section>
+    
+    <!-- Filtros de produtos -->
+    <section class="filtros-produtos">
+        <div class="container">
+            <div class="filtros-container">
+                <div class="filtro-grupo">
+                    <label for="ordenar">Ordenar por:</label>
+                    <select id="ordenar" class="filtro-select">
+                        <option value="relevancia">Relevância</option>
+                        <option value="menor-preco">Menor preço</option>
+                        <option value="maior-preco">Maior preço</option>
+                        <option value="nome-az">Nome (A-Z)</option>
+                        <option value="nome-za">Nome (Z-A)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lista de produtos da categoria -->
+    <section class="produtos-categoria">
+        <div class="container">
+            <div class="grid-produtos" id="produtos-categoria">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="/img/logo.png" alt="Centro de Treinamento">
+                    <p>Transformando vidas através do treinamento de qualidade e produtos selecionados.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="/sobre.html">Sobre</a></li>
+                        <li><a href="/modalidades.html">Modalidades</a></li>
+                        <li><a href="/equipe.html">Equipe</a></li>
+                        <li><a href="/produtos/index.html">Produtos</a></li>
+                        <li><a href="/contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-produtos">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="/produtos/suplementos.html">Suplementos</a></li>
+                        <li><a href="/produtos/vestuario.html">Vestuário</a></li>
+                        <li><a href="/produtos/cafe.html">Produtos de Café</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Receba Novidades</h4>
+                    <p>Cadastre-se para receber ofertas exclusivas e dicas de treino.</p>
+                    <form id="form-newsletter">
+                        <input type="email" placeholder="Seu melhor e-mail" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Centro de Treinamento. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="/politica-privacidade.html">Política de Privacidade</a>
+                    <a href="/termos-uso.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="/js/menu-padronizado.js"></script>
+    <script src="/js/vitrine-produtos.js"></script>
+</body>
+</html>
